@@ -1,46 +1,76 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 const PROJECTS = [
-  {
-    title: "Luxe Studio",
-    client: "Premium Service Business",
-    year: "2025",
-    desc: "A 24/7 automated booking portal with real-time calendar syncing, eliminating double-bookings and manual scheduling. Reduced admin overhead by 80%.",
-    tech: ["React", "State Management", "Dynamic Time Logic"],
-    img: "https://images.unsplash.com/photo-1521590832167-7bfc17484d20?q=80&w=1200&auto=format&fit=crop",
-    demoUrl: "https://luxe-studio-demo.vercel.app",
-    num: "01"
-  },
-  {
-    title: "Aurum Residences",
-    client: "Luxury Real Estate",
-    year: "2025",
-    desc: "A quiet-luxury property showcase utilizing hardware-accelerated parallax, scroll reveals, and high-end editorial typography. Conversion rate up 3×.",
-    tech: ["React", "CSS Architecture", "Intersection Observers"],
-    img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop",
-    demoUrl: "https://aurum-demo.vercel.app",
-    num: "02"
-  },
-  {
-    title: "Terroir",
-    client: "Fine Dining",
-    year: "2026",
-    desc: "An immersive, sensory digital experience for an award-winning restaurant. Complex grid layouts, reservation logic, and silky-smooth page transitions.",
-    tech: ["React", "CSS Grid", "Client-side Validation"],
-    img: "https://images.unsplash.com/photo-1600864703813-f4219dbb3b4f?q=80&w=1200&auto=format&fit=crop",
-    demoUrl: "https://terroir-demo.vercel.app",
-    num: "03"
-  },
-  {
-    title: "The Corner Roastery",
-    client: "Local E-Commerce",
-    year: "2026",
-    desc: "A frictionless digital storefront with slide-out cart, live category filtering, and an interactive checkout flow. Sales up 55% in first quarter.",
-    tech: ["React", "Cart State Logic", "Micro-animations"],
-    img: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1200&auto=format&fit=crop",
-    demoUrl: "https://roastery-demo.vercel.app",
-    num: "04"
-  }
+    {
+        title: "Arcflow",
+        client: "SaaS Product",
+        year: "2026",
+        desc: "A project management operating system designed specifically for creative agencies. Features complex DOM manipulation, kanban state, and custom CSS grid.",
+        tech: ["React", "CSS Grid", "Complex DOM"],
+        img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
+        demoUrl: "https://arkflow-demo.vercel.app/",
+        num: "01"
+    },
+    {
+        title: "Subfrequency",
+        client: "Underground Record Label",
+        year: "2026",
+        desc: "A brutalist, post-industrial digital experience featuring pure CSS lava-lamp backgrounds, duotone filters, and interactive waveform animations.",
+        tech: ["React", "CSS Animations", "Audio Visualization"],
+        img: "https://images.unsplash.com/photo-1598387993281-cecf8b71a8f8?q=80&w=1200&auto=format&fit=crop",
+        demoUrl: "https://subfrequency-demo.vercel.app/",
+        num: "02"
+    },
+    {
+        title: "Luxe Studio",
+        client: "Premium Service Business",
+        year: "2026",
+        desc: "A 24/7 automated booking portal with real-time calendar syncing, eliminating double-bookings and manual scheduling. Reduced admin overhead by 80%.",
+        tech: ["React", "State Management", "Dynamic Time Logic"],
+        img: "https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1200&auto=format&fit=crop",
+        demoUrl: "https://luxe-studio-demo.vercel.app/", 
+        num: "03"
+    },
+    {
+        title: "Aurum Residences",
+        client: "Luxury Real Estate",
+        year: "2026",
+        desc: "A quiet-luxury property showcase utilizing hardware-accelerated parallax, scroll reveals, and high-end editorial typography. Conversion rate up 3×.",
+        tech: ["React", "CSS Architecture", "Intersection Observers"],
+        img: "https://images.unsplash.com/photo-1613490900233-08ddc64b5e28?q=80&w=1200&auto=format&fit=crop",
+        demoUrl: "https://aurum-demo-topaz.vercel.app/", 
+        num: "04"
+    },
+    {
+        title: "Terroir",
+        client: "Fine Dining",
+        year: "2026",
+        desc: "An immersive, sensory digital experience for an award-winning restaurant. Complex grid layouts, reservation logic, and silky-smooth page transitions.",
+        tech: ["React", "CSS Grid", "Client-side Validation"],
+        img: "https://images.unsplash.com/photo-1559314809-0d155014e29e?q=80&w=1200&auto=format&fit=crop",
+        demoUrl: "https://terroir-seven.vercel.app/",
+        num: "05"
+    },
+    {
+        title: "The Corner Roastery",
+        client: "Local E-Commerce",
+        year: "2026",
+        desc: "A frictionless digital storefront with slide-out cart, live category filtering, and an interactive checkout flow. Sales up 55% in first quarter.",
+        tech: ["React", "Cart State Logic", "Micro-animations"],
+        img: "https://images.unsplash.com/photo-1559525839-b184a4d698c7?q=80&w=1200&auto=format&fit=crop",
+        demoUrl: "https://the-corner-rostery-demo.vercel.app/",
+        num: "06"
+    },
+    {
+        title: "Greenfield High School",
+        client: "Education Institution",
+        year: "2026",
+        desc: "A complete digital presence featuring a live news feed, dynamic sports fixtures, and a protected staff admin dashboard for real-time content updates.",
+        tech: ["React", "Admin Dashboard", "CRUD Operations"],
+        img: "https://images.unsplash.com/photo-1560785496-3c9d27877182?q=80&w=1200&auto=format&fit=crop",
+        demoUrl: "https://greenfield-demo-ruby.vercel.app/",
+        num: "07"
+    }
 ];
 
 const CSS = `
@@ -258,19 +288,9 @@ const CSS = `
   }
   .hero-actions { display: flex; gap: 1.25rem; align-items: center; }
 
-  .hero-scroll {
-    display: flex; align-items: center; gap: 1rem;
-    font-size: 11px; color: var(--muted);
-    text-transform: uppercase; letter-spacing: 0.15em;
-  }
-  .scroll-line {
-    width: 48px; height: 1px; background: var(--muted);
-  }
-
   .hero-stats {
     display: flex; gap: 3rem;
   }
-  .stat-item {}
   .stat-num {
     font-family: 'Syne', sans-serif;
     font-size: 2.5rem; font-weight: 800;
@@ -402,7 +422,6 @@ const CSS = `
   }
   .project-item:hover .project-num { color: var(--accent); }
 
-  .project-main {}
   .project-client-tag {
     font-size: 11px; font-weight: 600;
     text-transform: uppercase; letter-spacing: 0.15em;
@@ -455,20 +474,39 @@ const CSS = `
     color: #090909; transform: rotate(45deg);
   }
 
-  .project-img-preview {
+  /* PRELOADED IMAGE GALLERY FOR HOVER */
+  .project-preview-container {
     position: fixed;
-    width: 320px; height: 220px;
-    object-fit: cover;
+    top: 0; left: 0;
+    width: 340px; 
+    height: 240px;
     pointer-events: none;
     z-index: 200;
     opacity: 0;
+    transform: translate(20px, -50%) scale(0.9) rotate(-3deg);
     transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
-    transform: scale(0.9) rotate(-2deg);
+    border-radius: 6px;
+    overflow: hidden;
     border: 1px solid var(--border-strong);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
   }
-  .project-img-preview.visible {
+  .project-preview-container.visible {
     opacity: 1;
-    transform: scale(1) rotate(-1deg);
+    transform: translate(30px, -50%) scale(1) rotate(-1deg);
+  }
+  .project-img-preview {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; 
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(1.1);
+    transition: opacity 0.4s var(--ease), transform 0.6s var(--ease);
+  }
+  .project-img-preview.active {
+    opacity: 1;
+    transform: scale(1);
   }
 
   @media (max-width: 900px) {
@@ -545,7 +583,6 @@ const CSS = `
     align-items: start;
   }
   @media (max-width: 900px) { .statement-grid { grid-template-columns: 1fr; gap: 3rem; } }
-  .statement-sidebar {}
   .statement-available {
     display: flex; align-items: center; gap: 0.75rem;
     font-size: 12px; color: var(--muted2);
@@ -576,7 +613,6 @@ const CSS = `
   }
   .detail-value { font-size: 15px; color: var(--text); font-weight: 500; }
 
-  .statement-main {}
   .statement-quote {
     font-family: 'Syne', sans-serif;
     font-size: clamp(1.75rem, 3.5vw, 3rem);
@@ -643,7 +679,6 @@ const CSS = `
   }
   @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
   .contact-methods { display: flex; flex-direction: column; gap: 2.5rem; }
-  .c-method {}
   .c-label {
     font-size: 10px; font-weight: 700;
     text-transform: uppercase; letter-spacing: 0.2em;
@@ -725,8 +760,7 @@ const CSS = `
 export default function Portfolio() {
   const [scrolled, setScrolled] = useState(false);
   const [hoveredProject, setHoveredProject] = useState(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
+  
   const cursorRef = useRef(null);
   const ringRef = useRef(null);
   const imgPreviewRef = useRef(null);
@@ -756,10 +790,10 @@ export default function Portfolio() {
 
   useEffect(() => {
     const onMove = (e) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
       if (cursorRef.current) {
         cursorRef.current.style.transform = `translate(${e.clientX - 5}px, ${e.clientY - 5}px)`;
       }
+      
       const animate = () => {
         ringPos.current.x += (e.clientX - 18 - ringPos.current.x) * 0.12;
         ringPos.current.y += (e.clientY - 18 - ringPos.current.y) * 0.12;
@@ -767,25 +801,25 @@ export default function Portfolio() {
           ringRef.current.style.transform = `translate(${ringPos.current.x}px, ${ringPos.current.y}px)`;
         }
       };
+      
       cancelAnimationFrame(rafRef.current);
       rafRef.current = requestAnimationFrame(animate);
 
-      if (imgPreviewRef.current && hoveredProject !== null) {
-        imgPreviewRef.current.style.left = `${e.clientX + 20}px`;
-        imgPreviewRef.current.style.top = `${e.clientY - 110}px`;
+      if (imgPreviewRef.current) {
+        imgPreviewRef.current.style.left = `${e.clientX}px`;
+        imgPreviewRef.current.style.top = `${e.clientY}px`;
       }
     };
 
     const onEnter = (e) => {
       if (e.target.closest('a, button, .project-item')) {
-        setIsHovering(true);
         cursorRef.current?.classList.add('hovering');
         ringRef.current?.classList.add('hovering');
       }
     };
+    
     const onLeave = (e) => {
       if (e.target.closest('a, button, .project-item')) {
-        setIsHovering(false);
         cursorRef.current?.classList.remove('hovering');
         ringRef.current?.classList.remove('hovering');
       }
@@ -799,7 +833,7 @@ export default function Portfolio() {
       window.removeEventListener('mouseover', onEnter);
       window.removeEventListener('mouseout', onLeave);
     };
-  }, [hoveredProject]);
+  }, []);
 
   const marqueeItems = ['React Architecture', 'Performance Engineering', 'UI/UX Systems', 'E-Commerce', 'Booking Platforms', 'Luxury Digital Experiences', 'Systems Integration', 'Frontend Development'];
 
@@ -807,15 +841,21 @@ export default function Portfolio() {
     <>
       <div ref={cursorRef} className="cursor" />
       <div ref={ringRef} className="cursor-ring" />
-      {hoveredProject !== null && (
-        <img
-          ref={imgPreviewRef}
-          src={PROJECTS[hoveredProject].img}
-          alt=""
-          className={`project-img-preview ${hoveredProject !== null ? 'visible' : ''}`}
-          style={{ left: mousePos.x + 20, top: mousePos.y - 110 }}
-        />
-      )}
+      
+      {/* PRELOADED FLOATING IMAGE GALLERY */}
+      <div 
+        ref={imgPreviewRef} 
+        className={`project-preview-container ${hoveredProject !== null ? 'visible' : ''}`}
+      >
+        {PROJECTS.map((p, i) => (
+          <img
+            key={i}
+            src={p.img}
+            alt={p.title}
+            className={`project-img-preview ${hoveredProject === i ? 'active' : ''}`}
+          />
+        ))}
+      </div>
 
       {/* NAV */}
       <nav className={`nav ${scrolled ? 'scrolled' : ''}`}>
@@ -854,7 +894,7 @@ export default function Portfolio() {
           </div>
           <div className="hero-stats reveal d-2">
             <div className="stat-item">
-              <div className="stat-num">4<span>+</span></div>
+              <div className="stat-num">7<span>+</span></div>
               <div className="stat-label">Delivered Projects</div>
             </div>
             <div className="stat-item">
@@ -965,7 +1005,7 @@ export default function Portfolio() {
               </div>
               <div className="statement-detail">
                 <div className="detail-label">Specialization</div>
-                <div className="detail-value">React · TypeScript · Frontend Systems</div>
+                <div className="detail-value">React · Frontend Architecture</div>
               </div>
               <div className="statement-detail">
                 <div className="detail-label">Response Time</div>
