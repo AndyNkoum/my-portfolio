@@ -8,7 +8,7 @@ const PROJECTS = [
         desc: "A high-performance Discrete Fourier Transform simulator. Decomposes multi-stroke freehand drawings into continuous, self-healing mathematical loops using complex orbital mechanics.",
         tech: ["React", "Canvas API", "Signal Processing"],
         img: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop",
-        demoUrl: "https://your-fourier-link-here.vercel.app/", 
+        demoUrl: "https://andysuperweb.vercel.app/", 
         num: "01"
     },
     {
